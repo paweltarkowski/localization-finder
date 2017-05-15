@@ -2,7 +2,7 @@ package pl.tarko.software.finder.google.maps.service;
 
 import com.google.code.geocoder.model.GeocoderResult;
 import pl.tarko.software.finder.exceptions.GoogleLocalizationException;
-import pl.tarko.software.finder.lozalization.model.dto.LocalizationSearchParamDto;
+import pl.tarko.software.finder.localization.model.dto.LocalizationSearchParamDto;
 
 import java.util.Optional;
 

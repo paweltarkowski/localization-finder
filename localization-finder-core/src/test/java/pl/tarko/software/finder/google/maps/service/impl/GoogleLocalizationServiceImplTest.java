@@ -10,7 +10,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import pl.tarko.software.finder.CustomAssert;
 import pl.tarko.software.finder.exceptions.GoogleLocalizationException;
 import pl.tarko.software.finder.google.maps.util.LocalizationAdvancedGeoCoder;
-import pl.tarko.software.finder.lozalization.model.dto.LocalizationSearchParamDto;
+import pl.tarko.software.finder.localization.model.dto.LocalizationSearchParamDto;
 
 import java.io.IOException;
 import java.util.Arrays;
