@@ -7,7 +7,7 @@ import pl.tarko.software.finder.localization.service.CrudService;
 
 import java.io.Serializable;
 
-public class CrudServiceImpl<TO, T, ID extends Serializable> implements CrudService<T, ID> {
+public class CrudServiceImpl<DTO, T, ID extends Serializable> implements CrudService<T, ID> {
 
     @Autowired
     protected CrudRepository<T, ID> repository;
@@ -24,5 +24,6 @@ public class CrudServiceImpl<TO, T, ID extends Serializable> implements CrudServ
     public void delete(ID id) {
         repository.delete(id);
     }
+
 
 }
