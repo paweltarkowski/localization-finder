@@ -3,6 +3,7 @@ package pl.tarko.software.finder.localization.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.tarko.software.finder.localization.model.dto.LocalizationDto;
@@ -28,7 +29,7 @@ public class LocalizationSearchController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String search(@Valid LocalizationSearchParamDto searchForm, Model model) {
+    public String search(@ModelAttribute(name ="searchForm") LocalizationSearchParamDto searchForm, Model model) {
         final List<LocalizationDto> results = localizationService.findLocalizations(searchForm);
         model.addAttribute("results", results);
         return SEARCH_VIEW_NAME;
