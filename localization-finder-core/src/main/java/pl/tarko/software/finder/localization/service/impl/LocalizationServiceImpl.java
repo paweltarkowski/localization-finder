@@ -14,7 +14,6 @@ public class LocalizationServiceImpl extends CrudServiceImpl<LocalizationDto, Lo
 
     @Override
     public List<LocalizationDto> findLocalizations(LocalizationSearchParamDto searchParams) {
-        //TODO change entity -> DTO
-        return Collections.emptyList();
+        return mapper.mapAsList(repository.findAll(), LocalizationDto.class);
     }
 }
