@@ -1,14 +1,13 @@
-package pl.tarko.software;
+package pl.tarko.software.finder;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
-import pl.tarko.software.finder.LocalizationCoreConfiguration;
 
 @SpringBootApplication
 @Import(LocalizationCoreConfiguration.class)
-public class LocalizationAppApplication {
+public class LocalizationMainApplication {
     public static void main(String[] args) {
-        SpringApplication.run(LocalizationAppApplication.class, args);
+        SpringApplication.run(LocalizationMainApplication.class, args);
     }
 }

@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '1.4.0.RELEASE'
+        springBootVersion = '1.5.3.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -28,12 +28,12 @@ ext {
 subprojects {
     apply plugin: 'java'
     apply plugin: 'idea'
-    apply plugin: 'spring-boot'
 
     jar {
         baseName = 'localization-finder'
         version = '0.0.1-SNAPSHOT'
     }
+
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
 
@@ -41,15 +41,11 @@ subprojects {
         mavenCentral()
     }
 
-    bootRepackage.enabled = false
-
     dependencies {
         compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
         compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
-        compile("org.springframework.boot:spring-boot-starter-data-rest:${springBootVersion}")
-        compile("org.springframework.boot:spring-boot-starter-hateoas:${springBootVersion}")
-        compile("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}")
         compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+        compile("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}")
         compile("org.projectlombok:lombok:${lombokVersion}")
         compile("com.querydsl:querydsl-core:${queryDslVersion}")
         compile("com.querydsl:querydsl-apt:${queryDslVersion}")
@@ -58,7 +54,7 @@ subprojects {
         compile("org.hsqldb:hsqldb:${hsqldbVersion}")
         compile("com.google.code.geocoder-java:geocoder-java:${geocoderVersion}")
         compile("ma.glasnost.orika:orika-core:${orikaVersion}")
-        compile("com.google.collections:google-collections:${googleCollectionVersion}")
+
         testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
         testCompile("junit:junit:${junitVersion}")
         testCompile("org.mockito:mockito-core:${mockitoVersion}")
@@ -70,8 +66,13 @@ subprojects {
 }
 
 project(':localization-finder-main'){
-    dependencies{
-        bootRepackage.enabled = true
+    apply plugin: "org.springframework.boot"
+
+    dependencies {
         compile project (':localization-finder-core')
+    }
+
+    bootRun {
+        addResources = true
     }
 }
