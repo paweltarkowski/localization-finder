@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class TownDto implements BaseDistributionDto {
+public class CityDto implements BaseDistributionDto {
 
     private static final long serialVersionUID = -3389926032507218115L;
 

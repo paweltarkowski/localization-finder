@@ -23,6 +23,7 @@ ext {
     hamrestVersion = '1.3'
     objenesisVersion = '2.1'
     assertjCoreVersion = '2.5.0'
+    thymeleafLayoutDialectVersion = '2.2.1'
 }
 
 subprojects {
@@ -44,9 +45,6 @@ subprojects {
     dependencies {
         compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
         compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
-        compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
-        compile("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}")
-        compile("org.springframework.boot:spring-boot-devtools:${springBootVersion}")
         compile("org.projectlombok:lombok:${lombokVersion}")
         compile("com.querydsl:querydsl-core:${queryDslVersion}")
         compile("com.querydsl:querydsl-apt:${queryDslVersion}")
@@ -71,6 +69,10 @@ project(':localization-finder-main'){
 
     dependencies {
         compile project (':localization-finder-core')
+        compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+        compile("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}")
+        compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:${thymeleafLayoutDialectVersion}")
+        compile("org.springframework.boot:spring-boot-devtools:${springBootVersion}")
     }
 
     bootRun {

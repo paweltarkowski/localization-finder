@@ -13,13 +13,13 @@ import org.springframework.context.annotation.Profile;
 
 import pl.tarko.software.finder.CorePreConfiguredContextTest;
 import pl.tarko.software.finder.localization.model.jpa.Country;
-import pl.tarko.software.finder.localization.model.jpa.Town;
+import pl.tarko.software.finder.localization.model.jpa.City;
 
 @Profile("test")
-public class TownRepositoryTestCore extends CorePreConfiguredContextTest {
+public class CityRepositoryTestCore extends CorePreConfiguredContextTest {
 
 	@Autowired
-	TownRepository testObject;
+	CityRepository testObject;
 
 	@Autowired
 	CountryRepository countryRepository;
@@ -31,32 +31,32 @@ public class TownRepositoryTestCore extends CorePreConfiguredContextTest {
 	}
 
 	@Test
-	public void shouldNotFindAnyTown() {
+	public void shouldNotFindAnyCity() {
 		assertEquals(0, testObject.findAll().size());
 	}
 
 	@Test
-	public void shouldFindTown() {
+	public void shouldFindCity() {
 		// given
-		List<Town> towns = Arrays.asList(createTown("testTown", "testCountry"),
-				createTown("testTownOther", "otherCountry"));
-		for (Town town : towns) {
-			countryRepository.save(town.getCountry());
-			testObject.save(town);
+		List<City> cities = Arrays.asList(createCity("testCity", "testCountry"),
+				createCity("testCityOther", "otherCountry"));
+		for (City city : cities) {
+			countryRepository.save(city.getCountry());
+			testObject.save(city);
 		}
 
 		final Country country = countryRepository.findByName("testCountry");
 
 		// when
-		final List<Town> result = testObject.findByNameIgnoreCaseContainingAndAndCountry_IdOrderByName("testTown", country.getId());
+		final List<City> result = testObject.findByNameIgnoreCaseContainingAndAndCountry_IdOrderByName("testCity", country.getId());
 
 		// then
 		Assert.assertEquals(1, result.size());
 	}
 
-	private Town createTown(String townName, String countryName) {
+	private City createCity(String cityName, String countryName) {
 		Country country = Country.builder().name(countryName).build();
-		Town town = Town.builder().name(townName).country(country).build();
-		return town;
+		City city = City.builder().name(cityName).country(country).build();
+		return city;
 	}
 }

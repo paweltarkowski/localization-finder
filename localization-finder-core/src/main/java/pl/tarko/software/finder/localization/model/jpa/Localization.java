@@ -19,11 +19,11 @@ public class Localization implements Serializable {
 
     @Enumerated(EnumType.STRING)
     @Setter
-    private LocatizationType type;
+    private LocalizationType type = LocalizationType.DEFAULT;
 
     @ManyToOne
     @Setter
-    private Town town;
+    private City city;
 
     @Column
     @Setter
@@ -36,9 +36,5 @@ public class Localization implements Serializable {
     @Column
     @Setter
     private Double longitude;
-
-    @Column
-    @Setter
-    private String telNumber;
 
 }
