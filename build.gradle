@@ -23,7 +23,7 @@ ext {
     hamrestVersion = '1.3'
     objenesisVersion = '2.1'
     assertjCoreVersion = '2.5.0'
-    thymeleafLayoutDialectVersion = '2.2.1'
+    thymeleafLayoutDialectVersion = '1.2.1'
 }
 
 subprojects {
