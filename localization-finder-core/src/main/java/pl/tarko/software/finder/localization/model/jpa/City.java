@@ -5,15 +5,15 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@SequenceGenerator(name = "town_sequence", sequenceName = "town_id_seq", allocationSize = 1)
+@SequenceGenerator(name = "city_sequence", sequenceName = "city_id_seq", allocationSize = 1)
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Town {
+public class City {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "town_sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "city_sequence")
     private Long id;
 
     @Column

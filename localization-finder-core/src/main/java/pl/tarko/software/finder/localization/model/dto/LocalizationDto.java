@@ -15,13 +15,11 @@ public class LocalizationDto implements BaseDistributionDto {
 
     private String type;
 
-    private TownDto town;
+    private CityDto city;
 
     private String address;
 
     private Double latitude;
 
     private Double longitude;
-
-    private String telNumber;
 }
