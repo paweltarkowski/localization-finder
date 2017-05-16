@@ -43,13 +43,21 @@ subprojects {
         mavenCentral()
     }
 
+    idea {
+        module {
+            sourceDirs += file('generated/')
+            generatedSourceDirs += file('generated/')
+        }
+    }
+
     dependencies {
         compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
         compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
         compile("org.projectlombok:lombok:${lombokVersion}")
+        compile("com.querydsl:querydsl-root:${queryDslVersion}")
         compile("com.querydsl:querydsl-core:${queryDslVersion}")
-        compile("com.querydsl:querydsl-apt:${queryDslVersion}")
         compile("com.querydsl:querydsl-jpa:${queryDslVersion}")
+        compile("com.querydsl:querydsl-apt:${queryDslVersion}:jpa")
         compile("com.google.maps:google-maps-services:${googleMapsServicesVersion}")
         compile("org.hsqldb:hsqldb:${hsqldbVersion}")
         compile("com.google.code.geocoder-java:geocoder-java:${geocoderVersion}")
