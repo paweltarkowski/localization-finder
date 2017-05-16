@@ -1,10 +1,12 @@
 package pl.tarko.software.finder.localization.model.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Setter
 @Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class CountryDto implements BaseDistributionDto{
 
     private Long id;
