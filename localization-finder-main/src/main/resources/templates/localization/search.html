@@ -3,9 +3,7 @@
 <head>
     <title>Search localizations</title>
 </head>
-<!-- /* Content of this page will be decorated by the elements of layout.html (task/layout) */ -->
 <body>
-
 <div layout:fragment="content">
     <h3>Searching localizations on the map</h3>
     <form action="#" th:action="@{#}" th:object="${searchForm}" method="post"
@@ -68,12 +66,12 @@
             <div class="rTableRow" th:each="result : ${results}">
                 <div class="rTableCell" th:text="${result.id}"/>
                 <div class="rTableCell" th:text="${result.city.country.name}"/>
-                <div class="rTableCell" th:text="${result.city.name"/>
+                <div class="rTableCell" th:text="${result.city.name}"/>
                 <div class="rTableCell" th:text="${result.address}"/>
                 <div class="rTableCell" th:text="${result.zipCode}"/>
                 <div class="rTableCell" th:text="${result.latitude}"/>
                 <div class="rTableCell" th:text="${result.longitude}"/>
-                <div class="rTableCell" th:text=""/>
+                <div class="rTableCell"/>
             </div>
         </div>
     </div>

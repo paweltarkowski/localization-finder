@@ -31,6 +31,10 @@ public class Localization implements Serializable {
 
     @Column
     @Setter
+    private String zipCode;
+
+    @Column
+    @Setter
     private Double latitude;
 
     @Column

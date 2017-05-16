@@ -19,6 +19,8 @@ public class LocalizationDto implements BaseDistributionDto {
 
     private String address;
 
+    private String zipCode;
+
     private Double latitude;
 
     private Double longitude;
