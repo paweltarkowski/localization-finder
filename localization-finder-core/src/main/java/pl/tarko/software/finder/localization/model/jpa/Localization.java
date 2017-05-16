@@ -27,7 +27,11 @@ public class Localization implements Serializable {
 
     @Column
     @Setter
-    private String address;
+    private String street;
+
+    @Column
+    @Setter
+    private String buildingNo;
 
     @Column
     @Setter

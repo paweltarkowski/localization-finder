@@ -35,7 +35,10 @@
             <column name="id" type="bigint" valueSequenceNext="localization_id_seq">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="address" type="varchar(255)">
+            <column name="street" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="building_no" type="varchar(30)">
                 <constraints nullable="false"/>
             </column>
             <column name="city_id" type="bigint">

@@ -17,7 +17,9 @@ public class LocalizationDto implements BaseDistributionDto {
 
     private CityDto city;
 
-    private String address;
+    private String street;
+
+    private String buildingNo;
 
     private String zipCode;
 

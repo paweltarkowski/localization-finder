@@ -8,7 +8,8 @@
             <column name="id" valueSequenceNext="localization_id_seq"/>
             <column name="type" value="DEFAULT"/>
             <column name="city_id"  valueComputed="(select id from city where name = 'Bialystok')" />
-            <column name="address"  value="Sienkiewicza 1/1" />
+            <column name="street"  value="Sienkiewicza" />
+            <column name="building_no" value="1/1" />
             <column name="zip_code" value="12-092"/>
         </insert>
 
@@ -16,7 +17,8 @@
             <column name="id" valueSequenceNext="localization_id_seq"/>
             <column name="type" value="DEFAULT"/>
             <column name="city_id"  valueComputed="(select id from city where name = 'Cracow')" />
-            <column name="address"  value="Ślusarska 9" />
+            <column name="street"  value="Ślusarska" />
+            <column name="building_no" value="9" />
             <column name="zip_code" value="30-710"/>
         </insert>
 
@@ -24,7 +26,8 @@
             <column name="id" valueSequenceNext="localization_id_seq"/>
             <column name="type" value="DEFAULT"/>
             <column name="city_id"  valueComputed="(select id from city where name = 'Warsaw')" />
-            <column name="address"  value="Bobrowiecka 9" />
+            <column name="street"  value="Bobrowiecka" />
+            <column name="building_no" value="9" />
             <column name="zip_code" value="00-728"/>
         </insert>
     </changeSet>

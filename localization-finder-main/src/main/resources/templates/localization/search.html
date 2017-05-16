@@ -54,7 +54,6 @@
             <div class="rTableHead">Country</div>
             <div class="rTableHead">City</div>
             <div class="rTableHead">Address</div>
-            <div class="rTableHead">ZipCode</div>
             <div class="rTableHead">GPS - Latitude</div>
             <div class="rTableHead">GPS - Longitude</div>
             <div class="rTableHead">Operation</div>
@@ -67,8 +66,7 @@
                 <div class="rTableCell" th:text="${result.id}"/>
                 <div class="rTableCell" th:text="${result.city.country.name}"/>
                 <div class="rTableCell" th:text="${result.city.name}"/>
-                <div class="rTableCell" th:text="${result.address}"/>
-                <div class="rTableCell" th:text="${result.zipCode}"/>
+                <div class="rTableCell" th:text="|${result.street} ${result.buildingNo}, ${result.zipCode}|"/>
                 <div class="rTableCell" th:text="${result.latitude}"/>
                 <div class="rTableCell" th:text="${result.longitude}"/>
                 <div class="rTableCell"/>
