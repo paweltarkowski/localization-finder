@@ -1,0 +1,24 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.2.xsd">
+
+    <changeSet id="sprint01_data_02-add-cities.xml" author="ptarkowski" context="dev,test">
+        <insert tableName="city">
+            <column name="id" valueSequenceNext="city_id_seq"/>
+            <column name="name" value="Bialystok"/>
+            <column name="country_id"  valueComputed="(select id from country where name = 'Poland')" />
+        </insert>
+        <insert tableName="city">
+            <column name="id" valueSequenceNext="city_id_seq"/>
+            <column name="name" value="Warsaw"/>
+            <column name="country_id"  valueComputed="(select id from country where name = 'Poland')" />
+        </insert>
+        <insert tableName="city">
+            <column name="id" valueSequenceNext="city_id_seq"/>
+            <column name="name" value="Cracow"/>
+            <column name="country_id"  valueComputed="(select id from country where name = 'Poland')" />
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
