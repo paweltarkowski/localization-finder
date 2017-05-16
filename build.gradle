@@ -24,12 +24,13 @@ ext {
     objenesisVersion = '2.1'
     assertjCoreVersion = '2.5.0'
     thymeleafLayoutDialectVersion = '1.2.1'
+    liquibaseVersion = '3.5.3'
 }
 
 subprojects {
     apply plugin: 'java'
     apply plugin: 'idea'
-
+    
     jar {
         baseName = 'localization-finder'
         version = '0.0.1-SNAPSHOT'
@@ -53,6 +54,7 @@ subprojects {
         compile("org.hsqldb:hsqldb:${hsqldbVersion}")
         compile("com.google.code.geocoder-java:geocoder-java:${geocoderVersion}")
         compile("ma.glasnost.orika:orika-core:${orikaVersion}")
+        compile("org.liquibase:liquibase-core:${liquibaseVersion}")
 
         testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
         testCompile("junit:junit:${junitVersion}")
