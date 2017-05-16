@@ -37,7 +37,6 @@ public class CityRepositoryTest extends CorePreConfiguredContextTest {
 
     @Test
     public void shouldFindCity() {
-        System.out.println(new File(".").getAbsolutePath());
         // given
         List<City> cities = Arrays.asList(createCity("testCity", "testCountry"),
                 createCity("testCityOther", "otherCountry"));

@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 @Entity
 @Getter
+@Setter
 @SequenceGenerator(name = "localization_sequence", sequenceName = "localization_id_seq", initialValue = 1, allocationSize = 1)
 public class Localization implements Serializable {
 
@@ -18,31 +19,25 @@ public class Localization implements Serializable {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    @Setter
     private LocalizationType type = LocalizationType.DEFAULT;
 
     @ManyToOne
-    @Setter
+    @JoinColumn( name = "city_id")
     private City city;
 
     @Column
-    @Setter
     private String street;
 
     @Column
-    @Setter
     private String buildingNo;
 
     @Column
-    @Setter
     private String zipCode;
 
     @Column
-    @Setter
     private Double latitude;
 
     @Column
-    @Setter
     private Double longitude;
 
 }
