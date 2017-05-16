@@ -24,7 +24,6 @@ public class LocalizationAdvancedGeoCoder extends AdvancedGeoCoder {
     public LocalizationAdvancedGeoCoder(@Qualifier("GeocoderHttpClient") HttpClient httpClient,
                                         @Value("googlemaps.geocoder.client.key") String clientNewKey) throws InvalidKeyException {
         super(httpClient);
-        logger.debug("Create google client key name = "+clientNewKey);
         clientKey = clientNewKey;
     }
 
