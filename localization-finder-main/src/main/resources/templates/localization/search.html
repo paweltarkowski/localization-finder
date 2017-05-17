@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorator="layouts/base">
+<head>
+    <title>Search localizations</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h3>Searching localizations on the map</h3>
+    <form action="#" th:action="@{#}" th:object="${searchForm}" method="post"
+          class="form-horizontal">
+        <div th:if="${#fields.hasAnyErrors()}">
+            <p th:each="err : ${#fields.allErrors()}" th:text="${err}"></p>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 condivol-label" for="country">Country</label>
+            <div class="col-md-4">
+                <input id="country" type="text" th:field="*{country}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 condivol-label" for="city">City</label>
+            <div class="col-md-4">
+                <input id="city" type="text" th:field="*{city}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 condivol-label" for="street">Street</label>
+            <div class="col-md-4">
+                <input id="street" type="text" th:field="*{street}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 condivol-label" for="buildingNo">Building Number</label>
+            <div class="col-md-4">
+                <input id="buildingNo" type="text" th:field="*{buildingNo}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 condivol-label" for="zipCode">ZipCode</label>
+            <div class="col-md-4">
+                <input id="zipCode" type="text" th:field="*{zipCode}"/>
+            </div>
+        </div>
+        <div class="form-group-">
+            <div class="col-md-4 col-md-offset-4">
+                <input type="submit" class="btn btn-primary" value="Search"/>
+            </div>
+        </div>
+    </form>
+
+    <div class="rTable">
+        <div class="rTableHeading">
+            <div class="rTableHead">Id</div>
+            <div class="rTableHead">Country</div>
+            <div class="rTableHead">City</div>
+            <div class="rTableHead">Address</div>
+            <div class="rTableHead">GPS - Latitude</div>
+            <div class="rTableHead">GPS - Longitude</div>
+            <div class="rTableHead">Operation</div>
+        </div>
+        <div class="rTableBody">
+            <div th:if="${results?.empty}" class="rTableRow">
+                <span>No results</span>
+            </div>
+            <div class="rTableRow" th:each="result : ${results}">
+                <div class="rTableCell" th:text="${result.id}"/>
+                <div class="rTableCell" th:text="${result.city.country.name}"/>
+                <div class="rTableCell" th:text="${result.city.name}"/>
+                <div class="rTableCell" th:text="|${result.street} ${result.buildingNo}, ${result.zipCode}|"/>
+                <div class="rTableCell" th:text="${result.latitude}"/>
+                <div class="rTableCell" th:text="${result.longitude}"/>
+                <div class="rTableCell"/>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
