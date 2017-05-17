@@ -30,7 +30,7 @@ ext {
 subprojects {
     apply plugin: 'java'
     apply plugin: 'idea'
-    
+
     jar {
         baseName = 'localization-finder'
         version = '0.0.1-SNAPSHOT'
@@ -42,14 +42,6 @@ subprojects {
     repositories {
         mavenCentral()
     }
-
-    idea {
-        module {
-            sourceDirs += file('generated/')
-            generatedSourceDirs += file('generated/')
-        }
-    }
-
     dependencies {
         compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
         compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
@@ -71,6 +63,15 @@ subprojects {
         testCompile("org.hamcrest:hamcrest-core:${hamrestVersion}")
         testCompile("org.hamcrest:hamcrest-library:${hamrestVersion}")
         testCompile("org.objenesis:objenesis:${objenesisVersion}")
+    }
+}
+
+project(':localization-finder-core'){
+    idea {
+        module {
+            sourceDirs += file('generated/')
+            generatedSourceDirs += file('generated/')
+        }
     }
 }
 
