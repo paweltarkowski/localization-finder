@@ -25,5 +25,4 @@ public class CrudServiceImpl<DTO, T, ID extends Serializable> implements CrudSer
         repository.delete(id);
     }
 
-
 }
