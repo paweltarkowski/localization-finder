@@ -13,7 +13,7 @@ import pl.tarko.software.finder.localization.service.LocalizationService;
 import java.util.List;
 
 @Service
-public class LocalizationServiceImpl extends CrudServiceImpl<LocalizationDto, Localization, Long> implements LocalizationService {
+public class LocalizationServiceImpl extends CrudServiceImpl<Localization, Long> implements LocalizationService {
 
     @Override
     public List<LocalizationDto> findLocalizations(LocalizationSearchParamDto searchParams) {
