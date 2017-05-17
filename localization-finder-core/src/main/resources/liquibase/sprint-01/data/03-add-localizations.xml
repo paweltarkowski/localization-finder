@@ -3,7 +3,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.2.xsd">
 
-    <changeSet id="sprint01_data_03-add-localizations.xml" author="ptarkowski" context="test,dev">
+    <changeSet id="sprint01_data_03-add-localizations.xml" author="ptarkowski" context="dev">
         <insert tableName="localization">
             <column name="id" valueSequenceNext="localization_id_seq"/>
             <column name="type" value="DEFAULT"/>
