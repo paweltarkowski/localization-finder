@@ -46,8 +46,6 @@ subprojects {
         compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
         compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
         compile("org.projectlombok:lombok:${lombokVersion}")
-        compile("com.querydsl:querydsl-root:${queryDslVersion}")
-        compile("com.querydsl:querydsl-core:${queryDslVersion}")
         compile("com.querydsl:querydsl-jpa:${queryDslVersion}")
         compile("com.querydsl:querydsl-apt:${queryDslVersion}:jpa")
         compile("com.google.maps:google-maps-services:${googleMapsServicesVersion}")
@@ -70,7 +68,6 @@ project(':localization-finder-core'){
     idea {
         module {
             sourceDirs += file('generated/')
-            generatedSourceDirs += file('generated/')
         }
     }
 }
