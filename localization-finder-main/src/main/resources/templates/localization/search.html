@@ -13,8 +13,11 @@
         </div>
         <div class="form-group">
             <label class="col-md-4 condivol-label" for="country">Country</label>
-            <div class="col-md-4">
-                <input id="country" type="text" th:field="*{country}"/>
+            <div class="form-group col-md-4">
+                <select class="form-control" th:field="*{country}" id="country">
+                    <option th:each="country : ${countries}" th:value="${country.name}"
+                            th:text="${country.name}"></option>
+                </select>
             </div>
         </div>
         <div class="form-group">

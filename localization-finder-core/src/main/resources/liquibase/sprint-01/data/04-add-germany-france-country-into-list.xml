@@ -1,0 +1,17 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.2.xsd">
+
+    <changeSet id="sprint01_data_04-add-germany-france-country-into-list.xml" author="ptarkowski" context="dev">
+        <insert tableName="country">
+            <column name="id" valueSequenceNext="country_id_seq"/>
+            <column name="name" value="Germany"/>
+        </insert>
+        <insert tableName="country">
+            <column name="id" valueSequenceNext="country_id_seq"/>
+            <column name="name" value="France"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
