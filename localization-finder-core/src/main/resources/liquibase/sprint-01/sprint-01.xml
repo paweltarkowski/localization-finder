@@ -7,4 +7,5 @@
     <include file="data/01-add-countries.xml" relativeToChangelogFile="true"/>
     <include file="data/02-add-cities.xml" relativeToChangelogFile="true"/>
     <include file="data/03-add-localizations.xml" relativeToChangelogFile="true"/>
+    <include file="data/04-add-germany-france-country-into-list.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

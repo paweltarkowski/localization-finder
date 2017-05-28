@@ -7,6 +7,7 @@ import org.mockito.Mock;
 import org.springframework.http.MediaType;
 import pl.tarko.software.finder.PreConfiguredControllerTest;
 import pl.tarko.software.finder.localization.model.dto.LocalizationSearchParamDto;
+import pl.tarko.software.finder.localization.service.CountryService;
 import pl.tarko.software.finder.localization.service.LocalizationService;
 
 import java.util.ArrayList;
@@ -25,6 +26,9 @@ public class LocalizationSearchControllerControllerTest extends PreConfiguredCon
 
     @Mock
     LocalizationService localizationService;
+
+    @Mock
+    CountryService countryService;
 
     @Before
     public void setup(){

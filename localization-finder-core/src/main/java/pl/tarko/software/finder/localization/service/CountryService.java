@@ -1,7 +1,11 @@
 package pl.tarko.software.finder.localization.service;
 
+import pl.tarko.software.finder.localization.model.dto.CountryDto;
 import pl.tarko.software.finder.localization.model.jpa.Country;
+
+import java.util.List;
 
 public interface CountryService extends CrudService<Country, Long> {
 
+    List<CountryDto> findAll();
 }
