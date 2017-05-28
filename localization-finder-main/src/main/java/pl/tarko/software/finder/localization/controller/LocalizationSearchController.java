@@ -32,6 +32,7 @@ public class LocalizationSearchController {
     public String search(@ModelAttribute(name ="searchForm") LocalizationSearchParamDto searchForm, Model model) {
         final List<LocalizationDto> results = localizationService.findLocalizations(searchForm);
         model.addAttribute("results", results);
+        model.addAttribute("enable_map" ,1);
         return SEARCH_VIEW_NAME;
     }
 }
