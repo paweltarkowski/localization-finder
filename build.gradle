@@ -4,9 +4,14 @@ buildscript {
     }
     repositories {
         mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        jcenter()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "gradle.plugin.com.ewerk.gradle.plugins:querydsl-plugin:1.0.10"
     }
 }
 
@@ -27,13 +32,29 @@ ext {
     liquibaseVersion = '3.5.3'
 }
 
+
 subprojects {
     apply plugin: 'java'
     apply plugin: 'idea'
+    apply plugin: 'com.ewerk.gradle.plugins.querydsl'
 
     jar {
         baseName = 'localization-finder'
         version = '0.0.1-SNAPSHOT'
+    }
+
+   querydsl {
+        jpa = true
+        querydslSourcesDir = "${projectDir}/build/querydsl/java"
+        library = 'com.querydsl:querydsl-apt:4.2.1'
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDir "${projectDir}/build/querydsl/java"
+            }
+        }
     }
 
     sourceCompatibility = 1.8
@@ -42,18 +63,34 @@ subprojects {
     repositories {
         mavenCentral()
     }
+
+    task tableSetWorkaround {
+        gradle.ext.generatedQueriesDir = "${projectDir}/build/querydsl/java"
+        if ( file( gradle.ext.generatedQueriesDir ).exists() ) {
+            FileCollection collection = files { file( gradle.ext.generatedQueriesDir ).listFiles() }
+            collection.each { delete it }
+        }
+    }
+
+    compileQuerydsl.dependsOn tableSetWorkaround
+    compileQuerydsl.mustRunAfter tableSetWorkaround
+
     dependencies {
+        // spring-boot
         compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
         compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
+
+        //libs
         compile("org.projectlombok:lombok:${lombokVersion}")
+        compile("com.querydsl:querydsl-core:${queryDslVersion}")
         compile("com.querydsl:querydsl-jpa:${queryDslVersion}")
-        compile("com.querydsl:querydsl-apt:${queryDslVersion}:jpa")
         compile("com.google.maps:google-maps-services:${googleMapsServicesVersion}")
         compile("org.hsqldb:hsqldb:${hsqldbVersion}")
         compile("com.google.code.geocoder-java:geocoder-java:${geocoderVersion}")
         compile("ma.glasnost.orika:orika-core:${orikaVersion}")
         compile("org.liquibase:liquibase-core:${liquibaseVersion}")
 
+        //test libs
         testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
         testCompile("junit:junit:${junitVersion}")
         testCompile("org.mockito:mockito-core:${mockitoVersion}")
@@ -61,14 +98,6 @@ subprojects {
         testCompile("org.hamcrest:hamcrest-core:${hamrestVersion}")
         testCompile("org.hamcrest:hamcrest-library:${hamrestVersion}")
         testCompile("org.objenesis:objenesis:${objenesisVersion}")
-    }
-}
-
-project(':localization-finder-core'){
-    idea {
-        module {
-            sourceDirs += file('generated/')
-        }
     }
 }
 
